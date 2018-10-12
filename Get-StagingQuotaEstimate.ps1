@@ -1,6 +1,5 @@
 # Grab replicated folders and the local folder paths
 $ReplicatedFolder = Get-Dfsreplicatedfolder | Get-DfsrMembership | Where-Object { $_.computername -eq "$env:computername" } | Select-Object foldername, contentpath
-
 Function Get-DfsStagingQuotaEstimate {
     [CmdletBinding()]
     Param(
@@ -19,7 +18,6 @@ Function Get-DfsStagingQuotaEstimate {
         Write-Output "`n`nTotal recommended staging quota size for $($folder.foldername) is $Top32GB MB"
     }
 }
-
 
 $healthy = @(
     'PROVISIONING'
