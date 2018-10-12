@@ -118,7 +118,6 @@ function Get-ReplicatedFolderState {
         'status'  = $status
         'message' = $message
     }
-
 }
 # Get a count of replication groups and replicated folders
 function Get-DfsrFolderInformation {
@@ -210,7 +209,7 @@ function Get-DfsrHealthCheck {
             [Parameter(Mandatory=$true)]$CritThreshold
         )
 
-    $checkName = $checkName = "DFSRRepl_$replicatedFolder"
+    $checkName = "DFSRRepl_$replicatedFolder"
     $dfsrReplicatedFolderInfo = Get-DfsrFolderInformation -replicatedFolder $folder
 
     if ($dfsrReplicatedFolderInfo.ConnectionWarning)
@@ -253,7 +252,6 @@ function Get-DfsrHealthCheck {
             $message = "Backlog count for folder `"$folder`" in replication group `"$($dfsrReplicatedFolderInfo.DfsrGroup)`" is 0."
         }
     }
-
     [PSCustomObject]@{
         'status'    = $status
         'message'   = $message
